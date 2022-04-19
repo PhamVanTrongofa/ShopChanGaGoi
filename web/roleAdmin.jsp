@@ -13,7 +13,7 @@
             />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Shop Car</title>
+        <title>Shop Bedding</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <!-- Font Awesome 5 CSS -->
@@ -139,10 +139,10 @@
                                         <a class="btn btn-outline-dark mt-auto" 
                                            >Add to cart</a
                                         >
-                                        <div style="margin-top:0.5cm"><a class="btn btn-outline-dark mt-auto"
+                                        <div ><a class="btn btn-outline-dark mt-auto"
                                            >Update</a
                                         ></div>
-                                        <div style="margin-top:0.5cm"><a class="btn btn-outline-dark mt-auto"
+                                        <div ><a class="btn btn-outline-dark mt-auto"
                                            >Delete</a
                                         ></div>
                                     </div>

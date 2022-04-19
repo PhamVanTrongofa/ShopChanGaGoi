@@ -13,7 +13,7 @@
             />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Shop Car</title>
+        <title>Shop Bedding</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <!-- Font Awesome 5 CSS -->
@@ -145,7 +145,7 @@
                                             <div class="bi-star-fill"></div>
                                         </div>
                                         <h6 class="text-dark" class="card-title">$${P.price}</h6>
-                                        <a class="btn btn-outline-dark mt-auto" 
+                                        <a class="btn btn-outline-dark mt-auto" href="addtocart?productId=${P.id}"
                                            >Add to cart</a
                                         >
                                     </div>

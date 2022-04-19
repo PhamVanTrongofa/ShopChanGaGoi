@@ -12,6 +12,18 @@
         <servlet-name>ListforAdmin</servlet-name>
         <servlet-class>controllner.ListforAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddToCartControllner</servlet-name>
+        <servlet-class>controllner.AddToCartControllner</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CartControllner</servlet-name>
+        <servlet-class>controllner.CartControllner</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCartControllner</servlet-name>
+        <servlet-class>controllner.DeleteCartControllner</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home_Controllner</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>ListforAdmin</servlet-name>
         <url-pattern>/Listfor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartControllner</servlet-name>
+        <url-pattern>/addtocart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartControllner</servlet-name>
+        <url-pattern>/carts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCartControllner</servlet-name>
+        <url-pattern>/delete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
