@@ -4,7 +4,9 @@
  */
 package controllner;
 
-import Dao.ProductDAO;
+import Dao.OrderDAO;
+import Dao.OrderDetailDAO;
+import Dao.ShippingDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedHashMap;
@@ -15,13 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cart;
-import model.Product;
+import model.Order;
+import model.Shipping;
 
 /**
  *
  * @author Pham Van Trong
  */
-public class AddToCartControllner extends HttpServlet {
+public class CheckOutControllner extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,38 +38,27 @@ public class AddToCartControllner extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+         request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            int productId = Integer.parseInt(request.getParameter("productId"));
-            //map    productId | cart
-            HttpSession session = request.getSession();
+             HttpSession session = request.getSession();
             Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
             if (carts == null) {
                 carts = new LinkedHashMap<>();
             }
-           
-            if (carts.containsKey(productId)) {//sản phẩm đã có trên giỏ hàng
-                int oldQuantity = carts.get(productId).getQuantity();
-                carts.get(productId).setQuantity(oldQuantity + 1);
-                
-               
-               
-            } else {//sản phẩm chưa có trên giỏ hàng
-                Product product = new ProductDAO().getProductById(productId);
-                carts.put(productId, Cart.builder().product(product).quantity(1).build());
+
+            //tinh tong tien
+            double totalMoney = 0;
+            for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
+                Integer productId = entry.getKey();
+                Cart cart = entry.getValue();
+
+                totalMoney += cart.getQuantity() * cart.getProduct().getPrice();
+
             }
-       
-            
-           
-            //lưu carts lên session
-//            session.setAttribute("totalProducts", totalProducts);
-            session.setAttribute("carts", carts);
-            String urlHistory = (String) session.getAttribute("urlHistory");
-            if (urlHistory == null) {
-                urlHistory = "home";
-            }
-            response.sendRedirect(urlHistory);
-            
+            request.setAttribute("totalMoney", totalMoney);
+            request.getRequestDispatcher("checkout.jsp").forward(request, response);
         }
     }
 
@@ -96,7 +88,52 @@ public class AddToCartControllner extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        String note = request.getParameter("note");
+
+        //lưu vào database
+        //Lưu Shipping
+        Shipping shipping = Shipping.builder()
+                .name(name)
+                .phone(phone)
+                .address(address)
+                .build();
+        int shippingId = new ShippingDAO().createReturnId(shipping); //trả về id tự tăng của bản ghi vừa lưu vào database
+        //Lưu Order
+        HttpSession session = request.getSession();
+        Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+        if (carts == null) {
+            carts = new LinkedHashMap<>();
+        }
+
+        //tinh tong tien
+        double totalPrice = 0;
+        for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
+            Integer productId = entry.getKey();
+            Cart cart = entry.getValue();
+
+            totalPrice += cart.getQuantity() * cart.getProduct().getPrice();
+
+        }
+
+        Order order = Order.builder()
+                .accountId(1)
+                .totalPrice(shippingId)
+                .totalPrice(totalPrice)
+                .note(note)
+                .shippingId(shippingId)
+                .build();
+        int orderId = new OrderDAO().createReturnId(order);
+        //Lưu OrderDetail
+
+        new OrderDetailDAO().saveCart(orderId, carts);
+
+        session.removeAttribute("carts");
+        response.sendRedirect("thanks.jsp");
     }
 
     /**
