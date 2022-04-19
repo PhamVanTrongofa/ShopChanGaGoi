@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <a class="navbar-brand" href="#">
-                    <img  src="image/car_logo.jpg" width="60" />
+                    <img  src="image/po.png" width="60" />
                 </a>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="home">Home</a>
@@ -42,7 +42,7 @@
                     </ul>
                 </li>
             </ul>
-            <form action="search" class="d-flex mx-auto">
+            <form action="sreach" class="d-flex mx-auto">
                 <input
                     class="form-control me-2"
                     type="search"
