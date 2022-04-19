@@ -8,6 +8,10 @@
         <servlet-name>SreachControllner</servlet-name>
         <servlet-class>controllner.SreachControllner</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListforAdmin</servlet-name>
+        <servlet-class>controllner.ListforAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home_Controllner</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>SreachControllner</servlet-name>
         <url-pattern>/sreach</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListforAdmin</servlet-name>
+        <url-pattern>/Listfor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
