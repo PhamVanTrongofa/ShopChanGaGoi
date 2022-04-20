@@ -4,22 +4,22 @@
  */
 package controllner;
 
+import Dao.CategoryDAO;
+import Dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Cart;
+import model.Product;
 
 /**
  *
  * @author Pham Van Trong
  */
-public class DeleteCartControllner extends HttpServlet {
+public class UpdateProduct extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,26 +35,15 @@ public class DeleteCartControllner extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-             int productId = Integer.parseInt(request.getParameter("productId"));
-           
-            HttpSession session = request.getSession();
-            
-            Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
-            
-            
-            if (carts == null) {
-                carts = new LinkedHashMap<>();
-            }
-            
-            if(carts.containsKey(productId)){
-                carts.remove(productId);
-            }
-            
-// if(carts.equals(carts)){
-//                carts.clear();}
-//            }
-            session.setAttribute("carts", carts);
-            response.sendRedirect("carts");
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet UpdateProduct</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet UpdateProduct at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -70,7 +59,14 @@ public class DeleteCartControllner extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = new ProductDAO().getProductById(id);
+        List<Product> listProduct = new ProductDAO().getAllProducts();
+        List<model.Category> listCategory = new CategoryDAO().getAllCategories();
+        request.setAttribute("product", product);
+        request.setAttribute("listCategory", listCategory);
+        
+        request.getRequestDispatcher("Update.jsp").forward(request, response);
     }
 
     /**
@@ -84,7 +80,26 @@ public class DeleteCartControllner extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        double price = Double.parseDouble(request.getParameter("price"));
+        String Description = request.getParameter("description");
+        String ImageUrl = request.getParameter("imageUrl");
+        String CreatedDate = request.getParameter("createdDate");
+        int CategoryId = Integer.parseInt(request.getParameter("categoryId"));
+        
+        Product product = Product.builder().id(id)
+                .name(name)
+                .quantity(quantity)
+                .price(price)
+                .description(Description)
+                .imageUrl(ImageUrl)
+                .createdDate(CreatedDate)
+                .categoryId(CategoryId)
+                .build();
+        new ProductDAO().UpdateProducts(product);
+        response.sendRedirect("Listfor");
     }
 
     /**

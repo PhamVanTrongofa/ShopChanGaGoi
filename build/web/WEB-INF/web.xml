@@ -28,6 +28,14 @@
         <servlet-name>CheckOutControllner</servlet-name>
         <servlet-class>controllner.CheckOutControllner</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControllnerUpIn</servlet-name>
+        <servlet-class>controllner.ControllnerUpIn</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateProduct</servlet-name>
+        <servlet-class>controllner.UpdateProduct</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home_Controllner</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>CheckOutControllner</servlet-name>
         <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllnerUpIn</servlet-name>
+        <url-pattern>/repair</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProduct</servlet-name>
+        <url-pattern>/update</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

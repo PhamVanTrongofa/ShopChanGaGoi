@@ -139,9 +139,9 @@
                                         <a class="btn btn-outline-dark mt-auto" 
                                            >Add to cart</a
                                         >
-                                        <div ><a class="btn btn-outline-dark mt-auto"
-                                           >Update</a
-                                        ></div>
+                                        <div >
+                                           <a class="btn btn-outline-dark mt-auto  "  href="update?id=${P.id}">Update</a>
+                                        </div>
                                         <div ><a class="btn btn-outline-dark mt-auto"
                                            >Delete</a
                                         ></div>

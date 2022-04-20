@@ -4,22 +4,24 @@
  */
 package controllner;
 
+import Dao.CategoryDAO;
+import Dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Cart;
+import model.Category;
+import model.Product;
 
 /**
  *
  * @author Pham Van Trong
  */
-public class DeleteCartControllner extends HttpServlet {
+public class ControllnerUpIn extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,27 +37,13 @@ public class DeleteCartControllner extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-             int productId = Integer.parseInt(request.getParameter("productId"));
-           
-            HttpSession session = request.getSession();
-            
-            Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
-            
-            
-            if (carts == null) {
-                carts = new LinkedHashMap<>();
-            }
-            
-            if(carts.containsKey(productId)){
-                carts.remove(productId);
-            }
-            
-// if(carts.equals(carts)){
-//                carts.clear();}
-//            }
-            session.setAttribute("carts", carts);
-            response.sendRedirect("carts");
+
+//                Student student = new Student(-1, name, age, mark, classId, "");
+//                StudentDAO studentDAO = new StudentDAO();
+//                studentDAO.create(student);
+//                response.sendRedirect("list-students");
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -70,7 +58,14 @@ public class DeleteCartControllner extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+          HttpSession session = request.getSession();
+//        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+//        List<Category> listCategories = new CategoryDAO().getAllCategories();
+//      
+//        session.setAttribute("listCategories", listCategories);
+       List<model.Category> listCategory = new CategoryDAO().getAllCategories();
+       request.setAttribute("listCategory", listCategory);
+        request.getRequestDispatcher("add.jsp").forward(request, response);
     }
 
     /**
@@ -84,7 +79,40 @@ public class DeleteCartControllner extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+       
+        String name = request.getParameter("name");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        double price = Double.parseDouble(request.getParameter("price"));
+        String Description = request.getParameter("description");
+        String ImageUrl = request.getParameter("imageUrl");
+        String CreatedDate = request.getParameter("createdDate");
+        int CategoryId = Integer.parseInt(request.getParameter("categoryId"));
+                  
+       
+        
+        Product product = Product.builder()
+                .name(name)
+                .quantity(quantity)
+                .price(price)
+                .description(Description)
+                .imageUrl(ImageUrl)
+                .createdDate(CreatedDate)
+                .categoryId(CategoryId)
+                .build();
+        new ProductDAO().InsertProducts(product);
+      
+
+        response.sendRedirect("Listfor");
+//        String name = request.getParameter("name");
+//        int age = Integer.parseInt(request.getParameter("age"));
+//        double mark = Double.parseDouble(request.getParameter("mark"));
+//        int classId = Integer.parseInt(request.getParameter("classId"));
+//
+//        Student student = new Student(-1, name, age, mark, classId,"");
+//        StudentDAO studentDAO = new StudentDAO();
+//        studentDAO.create(student);
+//        response.sendRedirect("list-students");
     }
 
     /**

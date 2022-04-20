@@ -166,22 +166,23 @@ public class ProductDAO {
         }
         return null;
     }
- public int UpdateProducts(Product pro) {
-      
+
+    public int UpdateProducts(Product pro) {
+
         int n = 0;
         String sql = "UPDATE [ShoppingOnlineDB].[dbo].[Product]\n"
-                    + "   SET [name] = ? \n"
-                    + "      ,[quantity] = ? \n"
-                    + "      ,[price] = ?\n"
-                    + "      ,[description] = ?\n"
-                    + "      ,[image_url]= ? \n"
-                    + "      ,[created_date]= ?\n"
-                    + "      ,[category_id]= ? \n"
-                    + " WHERE id = ?";
+                + "   SET [name] = ? \n"
+                + "      ,[quantity] = ? \n"
+                + "      ,[price] = ?\n"
+                + "      ,[description] = ?\n"
+                + "      ,[image_url]= ? \n"
+                + "      ,[created_date]= ?\n"
+                + "      ,[category_id]= ? \n"
+                + " WHERE id = ?";
         try {
             Connection conn = new DBContext().getConnection();
             PreparedStatement pre = conn.prepareStatement(sql);
-            
+
             pre.setString(1, pro.getName());
             pre.setInt(2, pro.getQuantity());
             pre.setDouble(3, pro.getPrice());
@@ -200,6 +201,39 @@ public class ProductDAO {
         }
         return n;
     }
-    
+
+    public void InsertProducts(Product product) {
+        try {
+            String sql = "INSERT INTO [dbo].[Product]\n"
+                    + "           ([name]\n"
+                    + "           ,[quantity]\n"
+                    + "           ,[price]\n"
+                    + "           ,[description]\n"
+                    + "           ,[image_url]\n"
+                    + "           ,[created_date]\n"
+                    + "           ,[category_id])\n"
+                    + "     VALUES\n"
+                    + "           (?,?,?,?,?,?,?)";
+
+            //Mở kết nối
+            Connection conn = new DBContext().getConnection();
+
+            //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, product.getName());
+            ps.setInt(2, product.getQuantity());
+            ps.setDouble(3, product.getPrice());
+            ps.setString(4, product.getDescription());
+            ps.setString(5, product.getImageUrl());
+            ps.setString(6, product.getCreatedDate());
+            ps.setInt(7, product.getCategoryId());
+            
+            //Thực thi và trả về kết quả
+            ps.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

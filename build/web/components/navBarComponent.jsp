@@ -37,7 +37,8 @@
                         >Shop</a
                     >
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="Listfor">All Products</a></li>
+                        <li><a class="dropdown-item" href="Listfor">All Products(Only for Admin)</a></li>
+                        <li><a class="dropdown-item" href="repair">Insert(Only for Admin)</a></li>
                        
                         
                     </ul>

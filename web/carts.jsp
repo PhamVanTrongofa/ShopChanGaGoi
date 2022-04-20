@@ -31,7 +31,7 @@
             <div class="container" style="min-height: 1000px">
                 <c:choose>
                     <c:when test="${sessionScope.carts==null||sessionScope.carts.size()==0}">
-                        <h1>List Cart is Empty</h1>
+                        <h1 class="text-center">Your Cart is Empty</h1>
                     </c:when>
                     <c:otherwise>
                         <h3>List Products</h3>
