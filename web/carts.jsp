@@ -63,7 +63,7 @@
                                     </tr>
                                 </form>
                             </c:forEach>
-<!--                            <td><a  href="deleteall?carts=${carts}" class="btn btn-outline-danger" ><i class="bi bi-trash"></i>Delete_ALL</a></td>-->
+<!--here-->
                             </tbody>
                         </table>
                         <h3>Total Amount: $${totalMoney}</h3>
@@ -74,4 +74,5 @@
         </section>
         <%@include file="components/footerComponent.jsp" %>
     </body>
+    <!--                            <td><a  href="deleteall?carts=${carts}" class="btn btn-outline-danger" ><i class="bi bi-trash"></i>DeleteALL</a></td>-->
 </html>

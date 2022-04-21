@@ -6,7 +6,6 @@ package controllner;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +18,7 @@ import model.Cart;
  *
  * @author Pham Van Trong
  */
-public class DeleteCartControllner extends HttpServlet {
+public class deleteall extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,22 +34,12 @@ public class DeleteCartControllner extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            int productId = Integer.parseInt(request.getParameter("productId"));
-
-            HttpSession session = request.getSession();
-
+             HttpSession session = request.getSession();
+            
             Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
 
-            if (carts == null) {
-                carts = new LinkedHashMap<>();
-            }
-
-            if (carts.containsKey(productId)) {
-                carts.remove(productId);
-            }
-//            if (carts.equals(carts)) {
-//                carts.clear();
-//            }
+             if(carts.equals(carts)){
+                carts.clear();}
             session.setAttribute("carts", carts);
             response.sendRedirect("carts");
         }

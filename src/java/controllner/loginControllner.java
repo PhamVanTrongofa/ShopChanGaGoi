@@ -4,22 +4,21 @@
  */
 package controllner;
 
+import Dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Cart;
+import model.Account;
 
 /**
  *
  * @author Pham Van Trong
  */
-public class DeleteCartControllner extends HttpServlet {
+public class loginControllner extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,24 +34,15 @@ public class DeleteCartControllner extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            int productId = Integer.parseInt(request.getParameter("productId"));
-
-            HttpSession session = request.getSession();
-
-            Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
-
-            if (carts == null) {
-                carts = new LinkedHashMap<>();
-            }
-
-            if (carts.containsKey(productId)) {
-                carts.remove(productId);
-            }
-//            if (carts.equals(carts)) {
-//                carts.clear();
-//            }
-            session.setAttribute("carts", carts);
-            response.sendRedirect("carts");
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet loginControllner</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet loginControllner at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -68,7 +58,7 @@ public class DeleteCartControllner extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     /**
@@ -82,7 +72,30 @@ public class DeleteCartControllner extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        boolean remember = request.getParameter("remember") != null;
+
+        // check username, password
+        Account account = new AccountDAO().login(username, password);
+
+        if (account != null) { //hợp lệ -> lưu lên session
+            //remember
+            if (remember) {
+                Cookie usernameCookie = new Cookie("username", username);
+                usernameCookie.setMaxAge(60 * 60 * 24 * 2);
+                Cookie passwordCookie = new Cookie("password", password);
+                passwordCookie.setMaxAge(60 * 60 * 24 * 2);
+                response.addCookie(usernameCookie);
+                response.addCookie(passwordCookie);
+            }
+            request.getSession().setAttribute("account", account);
+            response.sendRedirect("home");
+            //không remember
+        } else {//Không hợp lệ -> trả về lỗi
+            request.setAttribute("error", "Username or password incorrect");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
     }
 
     /**

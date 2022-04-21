@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Animated thank you page template free download |  thank you page design in html with source code</title>
+        <title>Shop Bedding</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="preconnect" href="https://fonts.gstatic.com">
                 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Righteous&display=swap" rel="stylesheet">
-                    <link rel="stylesheet" type="text/css" href="style.css" />
-                    <title>Shop Homepage - Start Bootstrap Template</title>
+                    <link rel="stylesheet" type="text/css" href="css/stylee.css" />
+               
                     <!-- Favicon-->
                     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
                     <!-- Bootstrap icons-->

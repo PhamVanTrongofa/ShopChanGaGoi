@@ -36,6 +36,18 @@
         <servlet-name>UpdateProduct</servlet-name>
         <servlet-class>controllner.UpdateProduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>deleteall</servlet-name>
+        <servlet-class>controllner.deleteall</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>loginControllner</servlet-name>
+        <servlet-class>controllner.loginControllner</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutControllner</servlet-name>
+        <servlet-class>controllner.LogoutControllner</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home_Controllner</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -79,6 +91,18 @@
     <servlet-mapping>
         <servlet-name>UpdateProduct</servlet-name>
         <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteall</servlet-name>
+        <url-pattern>/deleteall</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginControllner</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutControllner</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

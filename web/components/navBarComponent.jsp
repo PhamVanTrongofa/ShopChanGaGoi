@@ -69,10 +69,10 @@
             <c:choose>
                 <c:when test="${sessionScope.account != null}">
                     <button class="btn btn-outline-primary ms-lg-2">${sessionScope.account.displayName}</button>
-                     <a href="Logout" class="btn btn-success-primary ms-lg-2">Logout</a>
+                     <a href="logout" class="btn btn-outline-dark ms-lg-2">Logout</a>
                 </c:when>
                 <c:otherwise>
-                    <a href="Login" class="btn btn-success ms-lg-2">Login</a>
+                    <a href="login" class="btn btn-success ms-lg-2">Login</a>
                 </c:otherwise>
 
             </c:choose>

@@ -37,7 +37,7 @@ public class Home_Controllner extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            final int PAGE_SIZE = 15;
+            final int PAGE_SIZE = 10;
             List<Category> listCategories = new CategoryDAO().getAllCategories();
             HttpSession session = request.getSession();
             session.setAttribute("listCategories", listCategories);
