@@ -45,17 +45,12 @@
                 </li>
             </ul>
             <form action="sreach" class="d-flex mx-auto">
-                <input
-                    class="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                    name="keyword"
-                    />
-                <button class="btn btn-outline-success" type="submit">
-                    Search
-                </button>
+                <div class="input-group mb-3">
+                    <input  name="keyword" type="text" class="form-control form-control-lg" placeholder="Search Here">
+                    <button type="submit" class="input-group-text btn-success"><i class="bi bi-search me-2"></i> Search</button>
+                </div>
             </form>
+
           
       
             <div class="d-flex my-2">

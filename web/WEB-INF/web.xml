@@ -48,6 +48,10 @@
         <servlet-name>LogoutControllner</servlet-name>
         <servlet-class>controllner.LogoutControllner</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteProducts</servlet-name>
+        <servlet-class>controllner.DeleteProducts</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home_Controllner</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>LogoutControllner</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProducts</servlet-name>
+        <url-pattern>/deleteproducts</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

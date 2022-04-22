@@ -1,5 +1,3 @@
-
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -94,23 +92,33 @@
 
 
 
-
-                        <c:choose>
+                         <c:choose>
                             <c:when test="${listProducts==null || listProducts.size()==0}">
                                 Not founds
-                            </c:when>
+                            </c:when>    
                             <c:otherwise>
                                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                                     <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="Listfor?page=${page-1}">Previous</a></li>
-                                            <c:forEach begin="1" end="${totalPage}" var="i">
-                                            <li class="page-item ${i == page?"active":""}"><a class="page-link" href="Listfor?page=${i}">${i}</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link"  href="Listfor?page=${page-1}" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <c:forEach begin="1" end="${totalPage}" var="i">
+                                            <li class="page-item ${i == page?"active":""}"><a class="page-link"href="Listfor?page=${i}">${i}</a></li>
                                             </c:forEach>
-                                        <li class="page-item"><a class="page-link" href="Listfor?page=${page+1}">Next</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link"href="Listfor?page=${page+1}" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </c:otherwise>
-                        </c:choose>
+                        </c:choose>  
+                        
 
                         <div
                             class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center"
@@ -137,12 +145,12 @@
                                         </div>
                                         <h6 class="text-dark" class="card-title">$${P.price}</h6>
                                         <a class="btn btn-outline-dark mt-auto" 
-                                           >Add to cart</a
+                                           > <i class="bi bi-bag-plus"></i>Add to cart</a
                                         >
                                         <div >
                                            <a class="btn btn-outline-dark mt-auto  "  href="update?id=${P.id}">Update</a>
                                         </div>
-                                        <div ><a class="btn btn-outline-dark mt-auto"
+                                        <div ><a class="btn btn-outline-dark mt-auto"  href="deleteproducts?id=${P.id}" onclick="showMess(${o.id})"
                                            >Delete</a
                                         ></div>
                                     </div>
@@ -151,44 +159,49 @@
 
                             </c:forEach>
                         </div>
-                        <c:choose>
+                         <c:choose>
                             <c:when test="${listProducts==null || listProducts.size()==0}">
                                 Not founds
-                            </c:when>
+                            </c:when>    
                             <c:otherwise>
                                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                                     <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="home?page=${page-1}">Previous</a></li>
-                                            <c:forEach begin="1" end="${totalPage}" var="i">
-                                            <li class="page-item ${i == page?"active":""}"><a class="page-link" href="home?page=${i}">${i}</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link"  href="Listfor?page=${page-1}" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <c:forEach begin="1" end="${totalPage}" var="i">
+                                            <li class="page-item ${i == page?"active":""}"><a class="page-link"href="Listfor?page=${i}">${i}</a></li>
                                             </c:forEach>
-                                        <li class="page-item"><a class="page-link" href="home?page=${page+1}">Next</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link"href="Listfor?page=${page+1}" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </c:otherwise>
-                        </c:choose>
+                        </c:choose>  
                     </div>
                 </div>
             </div>
         </section>
         <%@include file="components/footerComponent.jsp" %>
+        <script>
+        function showMess(id){
+            var option = confirm("Are u sure to delete this product");
+            if(option === true){
+                window.location.href = 'deleteproducts?id=' + id;
+            }
+        }
+    </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <!-- Bootstrap 5 JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <!--         <script>
-                                                            function addToCartAsync(productId) {
-                                                                axios.get('add-to-cart-async', {
-                                                                    params: {
-                                                                        productId: productId
-                                                                    }
-                                                                }).then((response) => {
-                                                                    //lấy data thanh công
-                                                                    document.getElementById("cart_number").innerHTML = response.data;
-        
-                                                                    //Cập nhật view
-                                                                })
-                                                            }
-                </script>-->
+     
     </body>
 </html>

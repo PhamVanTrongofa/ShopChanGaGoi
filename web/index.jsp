@@ -83,16 +83,20 @@
         <!-- Section-->
         <section class="py-5">
 
+
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row">
                     <div class="col-md-3 mb-5">
-                        <h3  class="text-black-50" >List Categories</h3>
-                        <ul class="list-group">
-                            <c:forEach items="${sessionScope.listCategories}" var="C">
-                                <li class="list-group-item"><a href="listcategory?categoryId=${C.id}">${C.name}</a></li>
-                                </c:forEach>
-                        </ul>
+                        <div class="card" style="background-color: #eee;">
+                            <h3  class="text-black-50" >List Categories</h3>
+                            <ul class="list-group">
+                                <c:forEach items="${sessionScope.listCategories}" var="C">
+                                    <li class="list-group-item"><a href="listcategory?categoryId=${C.id}">${C.name}</a></li>
+                                    </c:forEach>
+                            </ul>
+                        </div>
                     </div>
+
 
 
 
@@ -104,22 +108,32 @@
 
 
 
-                        <c:choose>
+                         <c:choose>
                             <c:when test="${listProducts==null || listProducts.size()==0}">
                                 Not founds
-                            </c:when>
+                            </c:when>    
                             <c:otherwise>
                                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                                     <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="home?page=${page-1}">Previous</a></li>
-                                            <c:forEach begin="1" end="${totalPage}" var="i">
+                                        <li class="page-item">
+                                            <a class="page-link"  href="home?page=${page-1}" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <c:forEach begin="1" end="${totalPage}" var="i">
                                             <li class="page-item ${i == page?"active":""}"><a class="page-link" href="home?page=${i}">${i}</a></li>
                                             </c:forEach>
-                                        <li class="page-item"><a class="page-link" href="home?page=${page+1}">Next</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="home?page=${page+1}" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </c:otherwise>
-                        </c:choose>
+                        </c:choose>      
 
                         <div
                             class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center"
@@ -146,29 +160,46 @@
                                         </div>
                                         <h6 class="text-dark" class="card-title">$${P.price}</h6>
                                         <a class="btn btn-outline-dark mt-auto" href="addtocart?productId=${P.id}"
-                                           >Add to cart</a
+                                           ><i class="bi bi-bag-plus"></i> Add to cart</a
                                         >
                                     </div>
                                 </div>
 
                             </c:forEach>
                         </div>
+
+
+
                         <c:choose>
                             <c:when test="${listProducts==null || listProducts.size()==0}">
                                 Not founds
-                            </c:when>
+                            </c:when>    
                             <c:otherwise>
                                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                                     <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="home?page=${page-1}">Previous</a></li>
-                                            <c:forEach begin="1" end="${totalPage}" var="i">
+                                        <li class="page-item">
+                                            <a class="page-link"  href="home?page=${page-1}" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <c:forEach begin="1" end="${totalPage}" var="i">
                                             <li class="page-item ${i == page?"active":""}"><a class="page-link" href="home?page=${i}">${i}</a></li>
                                             </c:forEach>
-                                        <li class="page-item"><a class="page-link" href="home?page=${page+1}">Next</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="home?page=${page+1}" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </c:otherwise>
-                        </c:choose>
+                        </c:choose>      
+
+
+
+                        
                     </div>
                 </div>
             </div>

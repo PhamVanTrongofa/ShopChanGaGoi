@@ -227,7 +227,27 @@ public class ProductDAO {
             ps.setString(5, product.getImageUrl());
             ps.setString(6, product.getCreatedDate());
             ps.setInt(7, product.getCategoryId());
-            
+
+            //Thực thi và trả về kết quả
+            ps.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void delete(int id) {
+        try {
+            String sql = "DELETE FROM [dbo].[Product]\n"
+                    + "      WHERE id = ?";
+
+            //Mở kết nối
+            Connection conn = new DBContext().getConnection();
+
+            //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+
             //Thực thi và trả về kết quả
             ps.executeUpdate();
 
