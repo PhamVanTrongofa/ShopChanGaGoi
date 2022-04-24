@@ -17,6 +17,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Shop Bedding</title>
+        <link rel="icon" type="image/x-icon" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" />
+        <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" />
+        <link rel="icon" type="image/x-icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -35,36 +38,45 @@
 
             <div class="container" style="min-height: 1000px">
                 <h1>Checkout</h1>
+
+
                 <div class="row">
                     <div class="col-md-8" style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
-                        <h3>List Products</h3>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${carts}" var="C">
-                                    <tr>
-                                <input type="hidden" name="productId" value="${C.value.product.id}"/>
-                                <th scope="row">${C.value.product.id}</th>
-                                <td>${C.value.product.name}</td>
-                                <td><img src="${C.value.product.imageUrl}" width="50"/></td>
-                                <td>${C.value.product.price}</td>
-                                <td>${C.value.quantity}</td>
-                                <td>${C.value.product.price*C.value.quantity}</td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                        <h3>Total Amount: $${totalMoney}</h3>
+                        <div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg md:max-w-5xl">
+                            <div class="md:flex ">
+                               
+                                   
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col"> Name</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Total Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${carts}" var="C">
+                                                <tr>
+                                            <input type="hidden" name="productId" value="${C.value.product.id}"/>
+                                            <th scope="row">${C.value.product.id}</th>
+                                            <td>${C.value.product.name}</td>
+                                            <td><img src="${C.value.product.imageUrl}" width="50"/></td>
+                                            <td>${C.value.product.price}</td>
+                                            <td>${C.value.quantity}</td>
+                                            <td>${C.value.product.price*C.value.quantity}</td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                    <h3>Total Amount: $${totalMoney}</h3>
+                              
+                            </div>
+                        </div>
                     </div>
+
                     <div class="col-md-4" style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
                         <h3>Information of customer</h3>
                         <form action="checkout" method="POST">

@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-      <h3>List Product</h3>
+      <h3>Update Product</h3>
        <form action="update" method="POST">
             <table>
                 <input type="hidden" name="id" value="${product.id}" /></td>

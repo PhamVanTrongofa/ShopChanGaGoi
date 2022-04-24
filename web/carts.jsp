@@ -26,7 +26,8 @@
 
         <!-- Product section-->
         <section class="py-5">
-            <div class="container" style="min-height: 1000px">
+            <div class="container" style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem ">
+                <div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg md:max-w-5xl">
                 <c:choose>
                     <c:when test="${sessionScope.carts==null||sessionScope.carts.size()==0}">
                         <h1 class="text-center">Your Cart is Empty</h1>
@@ -36,13 +37,13 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total Price</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="colgroup">#</th>
+                                    <th scope="colgroup">Image</th>
+                                    <th scope="colgroup">Name</th>
+                                    <th scope="colgroup">Price</th>
+                                    <th scope="colgroup">Quantity</th>
+                                    <th scope="colgroup">Total Price</th>
+                                    <th scope="colgroup">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,6 +70,7 @@
                     </c:otherwise>
                 </c:choose>
             </div>
+                </div>
         </section>
         <%@include file="components/footerComponent.jsp" %>
     </body>

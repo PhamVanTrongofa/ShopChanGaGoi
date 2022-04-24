@@ -150,7 +150,7 @@
                                         <div >
                                            <a class="btn btn-outline-dark mt-auto  "  href="update?id=${P.id}">Update</a>
                                         </div>
-                                        <div ><a class="btn btn-outline-dark mt-auto"  href="deleteproducts?id=${P.id}" onclick="showMess(${o.id})"
+                                        <div ><a class="btn btn-outline-dark mt-auto"   href = "deleteproducts?id=${P.id}" 
                                            >Delete</a
                                         ></div>
                                     </div>
@@ -190,14 +190,14 @@
             </div>
         </section>
         <%@include file="components/footerComponent.jsp" %>
-        <script>
+<!--        <script>
         function showMess(id){
-            var option = confirm("Are u sure to delete this product");
+            var option = confirm("Are u sure to delete this Product");
             if(option === true){
                 window.location.href = 'deleteproducts?id=' + id;
             }
         }
-    </script>
+    </script>-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <!-- Bootstrap 5 JS -->

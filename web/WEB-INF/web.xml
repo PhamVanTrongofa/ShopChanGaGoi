@@ -52,6 +52,14 @@
         <servlet-name>DeleteProducts</servlet-name>
         <servlet-class>controllner.DeleteProducts</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminControllner</servlet-name>
+        <servlet-class>controllner.AdminControllner</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addfilter</servlet-name>
+        <servlet-class>controllner.addfilter</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home_Controllner</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -112,6 +120,19 @@
         <servlet-name>DeleteProducts</servlet-name>
         <url-pattern>/deleteproducts</url-pattern>
     </servlet-mapping>
+    <filter-mapping>
+        <filter-name>AuthenFilter</filter-name>
+        <url-pattern/>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Authorfilter</filter-name>
+        <url-pattern/>
+    </filter-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminControllner</servlet-name>
+        <url-pattern>/adminControllner</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

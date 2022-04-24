@@ -38,10 +38,7 @@ public class ControllnerUpIn extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
-//                Student student = new Student(-1, name, age, mark, classId, "");
-//                StudentDAO studentDAO = new StudentDAO();
-//                studentDAO.create(student);
-//                response.sendRedirect("list-students");
+
         }
 
     }
@@ -104,15 +101,7 @@ public class ControllnerUpIn extends HttpServlet {
       
 
         response.sendRedirect("Listfor");
-//        String name = request.getParameter("name");
-//        int age = Integer.parseInt(request.getParameter("age"));
-//        double mark = Double.parseDouble(request.getParameter("mark"));
-//        int classId = Integer.parseInt(request.getParameter("classId"));
-//
-//        Student student = new Student(-1, name, age, mark, classId,"");
-//        StudentDAO studentDAO = new StudentDAO();
-//        studentDAO.create(student);
-//        response.sendRedirect("list-students");
+
     }
 
     /**
