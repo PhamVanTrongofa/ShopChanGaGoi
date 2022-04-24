@@ -33,10 +33,6 @@
         <servlet-class>controllner.ControllnerUpIn</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UpdateProduct</servlet-name>
-        <servlet-class>controllner.UpdateProduct</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>deleteall</servlet-name>
         <servlet-class>controllner.deleteall</servlet-class>
     </servlet>
@@ -53,12 +49,8 @@
         <servlet-class>controllner.DeleteProducts</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AdminControllner</servlet-name>
-        <servlet-class>controllner.AdminControllner</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>addfilter</servlet-name>
-        <servlet-class>controllner.addfilter</servlet-class>
+        <servlet-name>UpdateProduct</servlet-name>
+        <servlet-class>controllner.UpdateProduct</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Home_Controllner</servlet-name>
@@ -75,10 +67,6 @@
     <servlet-mapping>
         <servlet-name>SreachControllner</servlet-name>
         <url-pattern>/sreach</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListforAdmin</servlet-name>
-        <url-pattern>/Listfor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddToCartControllner</servlet-name>
@@ -98,11 +86,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControllnerUpIn</servlet-name>
-        <url-pattern>/repair</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UpdateProduct</servlet-name>
-        <url-pattern>/update</url-pattern>
+        <url-pattern>/admin/repair</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>deleteall</servlet-name>
@@ -125,14 +109,21 @@
         <url-pattern/>
     </filter-mapping>
     <filter-mapping>
-        <filter-name>Authorfilter</filter-name>
+        <filter-name>RoleFilter</filter-name>
         <url-pattern/>
     </filter-mapping>
+    <!--     <servlet-mapping>
+        <servlet-name>UpdateProducts</servlet-name>
+        <url-pattern>/admin/updateProducts</url-pattern>
+    </servlet-mapping>-->
     <servlet-mapping>
-        <servlet-name>AdminControllner</servlet-name>
-        <url-pattern>/adminControllner</url-pattern>
+        <servlet-name>ListforAdmin</servlet-name>
+        <url-pattern>/listfor</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>UpdateProduct</servlet-name>
+        <url-pattern>/admin/updateProduct</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -36,7 +36,7 @@ public class DeleteProducts extends HttpServlet {
            int id= Integer.parseInt(request.getParameter("id"));
               ProductDAO dAO = new ProductDAO();
             dAO.delete(id);
-            response.sendRedirect("Listfor");
+            response.sendRedirect("listfor");
         }
     }
 

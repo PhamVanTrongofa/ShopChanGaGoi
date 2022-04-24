@@ -96,7 +96,7 @@
                                 <label for="note" class="form-label">Note</label>
                                 <textarea class="form-control" id="note" name="note" rows="3"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            <button type="submit" class="btn btn-dark w-100">Submit</button>
                         </form>
                     </div>
                 </div>

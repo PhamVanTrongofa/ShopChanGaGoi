@@ -91,7 +91,7 @@
                             <h3  class="text-black-50" >List Categories</h3>
                             <ul class="list-group">
                                 <c:forEach items="${sessionScope.listCategories}" var="C">
-                                    <li class="list-group-item"><a href="listcategory?categoryId=${C.id}">${C.name}</a></li>
+                                    <li class="list-group"><a href="listcategory?categoryId=${C.id}">${C.name}</a></li>
                                     </c:forEach>
                             </ul>
                         </div>

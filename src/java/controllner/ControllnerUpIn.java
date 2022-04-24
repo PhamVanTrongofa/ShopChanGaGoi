@@ -62,7 +62,7 @@ public class ControllnerUpIn extends HttpServlet {
 //        session.setAttribute("listCategories", listCategories);
        List<model.Category> listCategory = new CategoryDAO().getAllCategories();
        request.setAttribute("listCategory", listCategory);
-        request.getRequestDispatcher("add.jsp").forward(request, response);
+        request.getRequestDispatcher("../add.jsp").forward(request, response);
     }
 
     /**
@@ -100,7 +100,7 @@ public class ControllnerUpIn extends HttpServlet {
         new ProductDAO().InsertProducts(product);
       
 
-        response.sendRedirect("Listfor");
+        response.sendRedirect("../listfor");
 
     }
 

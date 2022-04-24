@@ -1,3 +1,5 @@
+<%@page import="model.Product"%>
+<%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -100,16 +102,16 @@
                                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                                     <ul class="pagination">
                                         <li class="page-item">
-                                            <a class="page-link"  href="Listfor?page=${page-1}" aria-label="Previous">
+                                            <a class="page-link"  href="listfor?page=${page-1}" aria-label="Previous">
                                                 <span aria-hidden="true">&laquo;</span>
                                                 <span class="sr-only">Previous</span>
                                             </a>
                                         </li>
                                         <c:forEach begin="1" end="${totalPage}" var="i">
-                                            <li class="page-item ${i == page?"active":""}"><a class="page-link"href="Listfor?page=${i}">${i}</a></li>
+                                            <li class="page-item ${i == page?"active":""}"><a class="page-link"href="listfor?page=${i}">${i}</a></li>
                                             </c:forEach>
                                         <li class="page-item">
-                                            <a class="page-link"href="Listfor?page=${page+1}" aria-label="Next">
+                                            <a class="page-link"href="listfor?page=${page+1}" aria-label="Next">
                                                 <span aria-hidden="true">&raquo;</span>
                                                 <span class="sr-only">Next</span>
                                             </a>
@@ -148,7 +150,7 @@
                                            > <i class="bi bi-bag-plus"></i>Add to cart</a
                                         >
                                         <div >
-                                           <a class="btn btn-outline-dark mt-auto  "  href="update?id=${P.id}">Update</a>
+                                           <a class="btn btn-outline-dark mt-auto  "  href="admin/updateProduct?id=${P.id}">Update</a>
                                         </div>
                                         <div ><a class="btn btn-outline-dark mt-auto"   href = "deleteproducts?id=${P.id}" 
                                            >Delete</a
@@ -167,16 +169,16 @@
                                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                                     <ul class="pagination">
                                         <li class="page-item">
-                                            <a class="page-link"  href="Listfor?page=${page-1}" aria-label="Previous">
+                                            <a class="page-link"  href="listfor?page=${page-1}" aria-label="Previous">
                                                 <span aria-hidden="true">&laquo;</span>
                                                 <span class="sr-only">Previous</span>
                                             </a>
                                         </li>
                                         <c:forEach begin="1" end="${totalPage}" var="i">
-                                            <li class="page-item ${i == page?"active":""}"><a class="page-link"href="Listfor?page=${i}">${i}</a></li>
+                                            <li class="page-item ${i == page?"active":""}"><a class="page-link"href="listfor?page=${i}">${i}</a></li>
                                             </c:forEach>
                                         <li class="page-item">
-                                            <a class="page-link"href="Listfor?page=${page+1}" aria-label="Next">
+                                            <a class="page-link"href="listfor?page=${page+1}" aria-label="Next">
                                                 <span aria-hidden="true">&raquo;</span>
                                                 <span class="sr-only">Next</span>
                                             </a>

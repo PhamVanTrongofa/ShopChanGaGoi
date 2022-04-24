@@ -59,14 +59,14 @@ public class UpdateProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+         int id = Integer.parseInt(request.getParameter("id"));
         Product product = new ProductDAO().getProductById(id);
         List<Product> listProduct = new ProductDAO().getAllProducts();
         List<model.Category> listCategory = new CategoryDAO().getAllCategories();
         request.setAttribute("product", product);
         request.setAttribute("listCategory", listCategory);
         
-        request.getRequestDispatcher("Update.jsp").forward(request, response);
+        request.getRequestDispatcher("../Update.jsp").forward(request, response);
     }
 
     /**
@@ -99,7 +99,7 @@ public class UpdateProduct extends HttpServlet {
                 .categoryId(CategoryId)
                 .build();
         new ProductDAO().UpdateProducts(product);
-        response.sendRedirect("Listfor");
+        response.sendRedirect("../listfor");
     }
 
     /**

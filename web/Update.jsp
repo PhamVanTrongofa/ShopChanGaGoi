@@ -14,7 +14,7 @@
     </head>
     <body>
       <h3>Update Product</h3>
-       <form action="update" method="POST">
+       <form action="updateProduct" method="POST">
             <table>
                 <input type="hidden" name="id" value="${product.id}" /></td>
                 <tr>

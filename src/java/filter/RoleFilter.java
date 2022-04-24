@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Filter.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package filter;
 
@@ -24,15 +25,26 @@ import model.Account;
  *
  * @author Pham Van Trong
  */
-@WebFilter(filterName = "Authorfilter", urlPatterns = {"/admin/*"})
-public class Authorfilter implements Filter {
+@WebFilter(filterName = "RoleFilter", urlPatterns = {"/admin/*"})
+public class RoleFilter implements Filter {
     
-  
+   
+
+    /**
+     *
+     * @param request The servlet request we are processing
+     * @param response The servlet response we are creating
+     * @param chain The filter chain we are processing
+     *
+     * @exception IOException if an input/output error occurs
+     * @exception ServletException if a servlet error occurs
+     */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-           HttpServletRequest req = (HttpServletRequest) request;
+        
+        HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
 
@@ -46,28 +58,26 @@ public class Authorfilter implements Filter {
             return;
         }
 //        req.setAttribute("error", "You are not permission");
-        res.sendRedirect("http://localhost:8080/ShopChanGaGoi/login");
-    
+        res.sendRedirect("http://localhost:8080/ShopChanGaGoi/login.jsp");
+       
     }
 
     
-
-    /**
-     * Destroy method for this filter
-     */
     @Override
     public void destroy() {        
     }
 
-  /**
+    /**
      * Init method for this filter
      * @param filterConfig
      */
     @Override
     public void init(FilterConfig filterConfig) {        
-       
+      
     }
 
+    
+    
    
     
 }

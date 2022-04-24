@@ -37,8 +37,8 @@
                         >Shop</a
                     >
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="Listfor">All Products(Only for Admin)</a></li>
-                        <li><a class="dropdown-item" href="repair">Insert(Only for Admin)</a></li>
+                        <li><a class="dropdown-item" href="listfor">All Products(Only for Admin)</a></li>
+                        <li><a class="dropdown-item" href="admin/repair">Insert(Only for Admin)</a></li>
                        
                         
                     </ul>
@@ -47,7 +47,7 @@
             <form action="sreach" class="d-flex mx-auto">
                 <div class="input-group mb-3">
                     <input  name="keyword" type="text" class="form-control form-control-lg" placeholder="Search Here">
-                    <button type="submit" class="input-group-text btn-success"><i class="bi bi-search me-2"></i> Search</button>
+                    <button type="submit" class="input-group-text btn-outline-info"><i class="bi bi-search me-2"></i> Search</button>
                 </div>
             </form>
 
