@@ -42,14 +42,14 @@
 
                 <div class="row">
                     <div class="col-md-8" style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
-                        <div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg md:max-w-5xl">
+                        <div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg md:max-w-5xl" style="border-radius:1rem;" >
                             <div class="md:flex ">
                                
                                    
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
+                                                <th scope="col">ID</th>
                                                 <th scope="col"> Name</th>
                                                 <th scope="col">Image</th>
                                                 <th scope="col">Price</th>

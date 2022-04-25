@@ -37,7 +37,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="colgroup">#</th>
+                                    <th scope="colgroup">ID</th>
                                     <th scope="colgroup">Image</th>
                                     <th scope="colgroup">Name</th>
                                     <th scope="colgroup">Price</th>
@@ -57,7 +57,7 @@
                                         <td>${C.value.product.price}</td>
                                         <td><input onchange="this.form.submit()" type="number" name="quantity" value="${C.value.quantity}"/></td>
                                         <td>${C.value.product.price*C.value.quantity}</td>
-                                        <td><a href="delete?productId=${C.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-bag-x"></i></i> Delete</a></td>
+                                        <td><a href="delete?productId=${C.value.product.id}" style="border-radius:75rem;" class="btn btn-outline-danger"><i class="bi bi-bag-x"></i></i> Delete</a></td>
                                         
                                     </tr>
                                 </form>
@@ -66,7 +66,7 @@
                             </tbody>
                         </table>
                         <h3>Total Amount: $${totalMoney}</h3>
-                        <a href="checkout" class="btn btn-outline-danger  w-25">Check out</a>
+                        <a href="checkout" style="border-radius:75rem;"  class="btn btn-outline-danger  w-25">Check out</a>
                     </c:otherwise>
                 </c:choose>
             </div>

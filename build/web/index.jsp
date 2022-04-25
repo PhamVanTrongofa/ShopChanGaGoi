@@ -159,7 +159,7 @@
                                             <div class="bi-star-fill"></div>
                                         </div>
                                         <h6 class="text-dark" class="card-title">$${P.price}</h6>
-                                        <a class="btn btn-outline-dark mt-auto" href="addtocart?productId=${P.id}"
+                                        <a class="btn btn-outline-dark mt-auto" href="addtocart?productId=${P.id}"  style="border-radius:75rem;"
                                            ><i class="bi bi-bag-plus"></i> Add to cart</a
                                         >
                                     </div>

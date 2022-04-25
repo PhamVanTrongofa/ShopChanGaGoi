@@ -99,7 +99,7 @@
                                 Not founds
                             </c:when>    
                             <c:otherwise>
-                                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                                <nav aria-label="Page navigation example" class="d-flex justify-content-center" >
                                     <ul class="pagination">
                                         <li class="page-item">
                                             <a class="page-link"  href="listfor?page=${page-1}" aria-label="Previous">
@@ -146,13 +146,13 @@
                                             <div class="bi-star-fill"></div>
                                         </div>
                                         <h6 class="text-dark" class="card-title">$${P.price}</h6>
-                                        <a class="btn btn-outline-dark mt-auto" 
+                                        <a class="btn btn-outline-dark mt-auto"  style="border-radius:75rem;"
                                            > <i class="bi bi-bag-plus"></i>Add to cart</a
                                         >
                                         <div >
-                                           <a class="btn btn-outline-dark mt-auto  "  href="admin/updateProduct?id=${P.id}">Update</a>
+                                           <a class="btn btn-outline-dark mt-auto  "  style="border-radius:75rem;"  href="admin/updateProduct?id=${P.id}">Update</a>
                                         </div>
-                                        <div ><a class="btn btn-outline-dark mt-auto"   href = "deleteproducts?id=${P.id}" 
+                                           <div ><a class="btn btn-outline-dark mt-auto"   style="border-radius:75rem;"  href = "deleteproducts?id=${P.id}"  
                                            >Delete</a
                                         ></div>
                                     </div>
@@ -166,7 +166,7 @@
                                 Not founds
                             </c:when>    
                             <c:otherwise>
-                                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                                <nav aria-label="Page navigation example" class="d-flex justify-content-center" >
                                     <ul class="pagination">
                                         <li class="page-item">
                                             <a class="page-link"  href="listfor?page=${page-1}" aria-label="Previous">
