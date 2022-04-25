@@ -48,7 +48,7 @@
                             </thead>
                             <tbody>
                                 <c:forEach items="${carts}" var="C">
-                                <form action="update-quantity">
+                                <form action="upda">
                                     <tr>
                                     <input type="hidden" name="productId" value="${C.value.product.id}"/>
                                         <th scope="row">${C.value.product.id}</th>
@@ -57,7 +57,7 @@
                                         <td>${C.value.product.price}</td>
                                         <td><input onchange="this.form.submit()" type="number" name="quantity" value="${C.value.quantity}"/></td>
                                         <td>${C.value.product.price*C.value.quantity}</td>
-                                        <td><a href="delete?productId=${C.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Delete</a></td>
+                                        <td><a href="delete?productId=${C.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-bag-x"></i></i> Delete</a></td>
                                         
                                     </tr>
                                 </form>
@@ -74,5 +74,5 @@
         </section>
         <%@include file="components/footerComponent.jsp" %>
     </body>
-    <!--                            <td><a  href="deleteall?carts=${carts}" class="btn btn-outline-danger" ><i class="bi bi-trash"></i>DeleteALL</a></td>-->
+    <!--     <td><a  href="deleteall?carts=${carts}" class="btn btn-outline-danger" ><i class="bi bi-trash"></i>DeleteALL</a></td>-->
 </html>
