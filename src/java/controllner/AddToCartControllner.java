@@ -57,14 +57,7 @@ public class AddToCartControllner extends HttpServlet {
             }
        
             
-//             int totalProducts = 0;
-//            for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
-//                Integer productID= entry.getKey();
-//                Cart cart = entry.getValue();
-//                totalProducts+=cart.getQuantity();
-//            }
-            //lưu carts lên session
-//            session.setAttribute("totalProducts", totalProducts);
+//h
             session.setAttribute("carts", carts);
             String urlHistory = (String) session.getAttribute("urlHistory");
             if (urlHistory == null) {
